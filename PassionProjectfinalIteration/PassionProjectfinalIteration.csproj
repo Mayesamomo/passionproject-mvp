@@ -183,6 +183,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BassGuitarController.cs" />
+    <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -191,6 +192,10 @@
     <Compile Include="Migrations\202306100210322_InitialCreate.cs" />
     <Compile Include="Migrations\202306100210322_InitialCreate.designer.cs">
       <DependentUpon>202306100210322_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202306191200344_bassguitar.cs" />
+    <Compile Include="Migrations\202306191200344_bassguitar.designer.cs">
+      <DependentUpon>202306191200344_bassguitar.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -279,6 +284,12 @@
     <Content Include="Views\BassGuitar\Index.cshtml" />
     <Content Include="Views\BassGuitar\Create.cshtml" />
     <Content Include="Views\BassGuitar\Edit.cshtml" />
+    <Content Include="Views\View.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -313,6 +324,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202306100210322_InitialCreate.resx">
       <DependentUpon>202306100210322_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306191200344_bassguitar.resx">
+      <DependentUpon>202306191200344_bassguitar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

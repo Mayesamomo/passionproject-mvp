@@ -112,3 +112,6 @@ C:\Users\micha\source\repos\PassionProjectfinalIteration\PassionProjectfinalIter
 C:\Users\micha\source\repos\PassionProjectfinalIteration\PassionProjectfinalIteration\obj\Debug\PassionProjectfinalIteration.csproj.CopyComplete
 C:\Users\micha\source\repos\PassionProjectfinalIteration\PassionProjectfinalIteration\obj\Debug\PassionProjectfinalIteration.dll
 C:\Users\micha\source\repos\PassionProjectfinalIteration\PassionProjectfinalIteration\obj\Debug\PassionProjectfinalIteration.pdb
+C:\Users\micha\source\repos\PassionProjectfinalIteration\PassionProjectfinalIteration\obj\Debug\PassionProjectfinalIteration.Migrations.InitialCreate.resources
+C:\Users\micha\source\repos\PassionProjectfinalIteration\PassionProjectfinalIteration\obj\Debug\PassionProjectfinalIteration.csproj.GenerateResource.cache
+C:\Users\micha\source\repos\PassionProjectfinalIteration\PassionProjectfinalIteration\obj\Debug\PassionProjectfinalIteration.Migrations.bassguitar.resources

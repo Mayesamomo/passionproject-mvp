@@ -1,12 +1,14 @@
 ﻿using PassionProjectfinalIteration.Models;
 using PassionProjectfinalIteration.ViewModels;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 
 namespace PassionProjectfinalIteration.Controllers
 {
     public class BassGuitarController : Controller
     {
+        readonly
         private ApplicationDbContext _context;
 
         public BassGuitarController()
@@ -14,14 +16,14 @@ namespace PassionProjectfinalIteration.Controllers
             _context = new ApplicationDbContext();
         }
 
-        // GET: BassGuitar
+        // GET: https://localhost:44332/BassGuitar
         public ActionResult Index()
         {
             var bassGuitars = _context.BassGuitars.Include("Category").ToList();
             return View(bassGuitars);
         }
 
-        // GET: BassGuitar/Create
+        // GET: https://localhost:44332/BassGuitar/Create
         public ActionResult Create()
         {
             var viewModel = new BassGuitarViewModel
@@ -61,10 +63,17 @@ namespace PassionProjectfinalIteration.Controllers
         // GET: BassGuitar/Edit/5
         public ActionResult Edit(int id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
             var bassGuitar = _context.BassGuitars.SingleOrDefault(c => c.ID == id);
 
             if (bassGuitar == null)
+            {
                 return HttpNotFound();
+            }
 
             var viewModel = new BassGuitarViewModel
             {
@@ -79,6 +88,7 @@ namespace PassionProjectfinalIteration.Controllers
             return View(viewModel);
         }
 
+
         // POST: BassGuitar/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -90,10 +100,12 @@ namespace PassionProjectfinalIteration.Controllers
                 return View(viewModel);
             }
 
-            var bassGuitar = _context.BassGuitars.SingleOrDefault(c => c.ID == viewModel.CategoryID);
+            var bassGuitar = _context.BassGuitars.SingleOrDefault(c => c.ID == viewModel.CategoryID); // Use viewModel.ID instead of viewModel.CategoryID
 
             if (bassGuitar == null)
+            {
                 return HttpNotFound();
+            }
 
             bassGuitar.Color = viewModel.Color;
             bassGuitar.NumberOfStrings = viewModel.NumberOfStrings;
