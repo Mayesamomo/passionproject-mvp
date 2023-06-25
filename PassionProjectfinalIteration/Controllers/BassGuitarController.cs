@@ -1,135 +1,100 @@
-﻿using PassionProjectfinalIteration.Models;
-using PassionProjectfinalIteration.ViewModels;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
-using System.Net;
+using System.Net.Http;
+using System.Web;
 using System.Web.Mvc;
 
 namespace PassionProjectfinalIteration.Controllers
 {
     public class BassGuitarController : Controller
     {
-        readonly
-        private ApplicationDbContext _context;
-
-        public BassGuitarController()
+        // GET: BassGuitar
+        public ActionResult List()
         {
-            _context = new ApplicationDbContext();
+
+            //communicate with bassguitar data api to retrieve list of animal 
+            // curl https://localhost:44332/
+            HttpClient client = new HttpClient() { };
+
+            string url = "https://localhost:44332/api/BassGuitarData/ListGuitars";
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            Debug.WriteLine("The response code is: ");
+            Debug.WriteLine(response.StatusCode);
+            return View();
         }
 
-        // GET: https://localhost:44332/BassGuitar
-        public ActionResult Index()
+        // GET: BassGuitar/Details/5
+        public ActionResult Details(int id)
         {
-            var bassGuitars = _context.BassGuitars.Include("Category").ToList();
-            return View(bassGuitars);
+            return View();
         }
 
-        // GET: https://localhost:44332/BassGuitar/Create
+        // GET: BassGuitar/Create
         public ActionResult Create()
         {
-            var viewModel = new BassGuitarViewModel
-            {
-                AvailableCategories = _context.Categories.ToList()
-            };
-
-            return View(viewModel);
+            return View();
         }
 
         // POST: BassGuitar/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(BassGuitarViewModel viewModel)
+        public ActionResult Create(FormCollection collection)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                viewModel.AvailableCategories = _context.Categories.ToList();
-                return View(viewModel);
+                // TODO: Add insert logic here
+
+                return RedirectToAction("Index");
             }
-
-            var bassGuitar = new BassGuitar
+            catch
             {
-                Color = viewModel.Color,
-                NumberOfStrings = viewModel.NumberOfStrings,
-                Model = viewModel.Model,
-                Manufacturer = viewModel.Manufacturer,
-                CategoryID = viewModel.CategoryID
-            };
-
-            _context.BassGuitars.Add(bassGuitar);
-            _context.SaveChanges();
-
-            return RedirectToAction("Index");
+                return View();
+            }
         }
 
         // GET: BassGuitar/Edit/5
         public ActionResult Edit(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            var bassGuitar = _context.BassGuitars.SingleOrDefault(c => c.ID == id);
-
-            if (bassGuitar == null)
-            {
-                return HttpNotFound();
-            }
-
-            var viewModel = new BassGuitarViewModel
-            {
-                Color = bassGuitar.Color,
-                NumberOfStrings = bassGuitar.NumberOfStrings,
-                Model = bassGuitar.Model,
-                Manufacturer = bassGuitar.Manufacturer,
-                CategoryID = bassGuitar.CategoryID,
-                AvailableCategories = _context.Categories.ToList()
-            };
-
-            return View(viewModel);
+            return View();
         }
-
 
         // POST: BassGuitar/Edit/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(BassGuitarViewModel viewModel)
+        public ActionResult Edit(int id, FormCollection collection)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                viewModel.AvailableCategories = _context.Categories.ToList();
-                return View(viewModel);
+                // TODO: Add update logic here
+
+                return RedirectToAction("Index");
             }
-
-            var bassGuitar = _context.BassGuitars.SingleOrDefault(c => c.ID == viewModel.CategoryID); // Use viewModel.ID instead of viewModel.CategoryID
-
-            if (bassGuitar == null)
+            catch
             {
-                return HttpNotFound();
+                return View();
             }
-
-            bassGuitar.Color = viewModel.Color;
-            bassGuitar.NumberOfStrings = viewModel.NumberOfStrings;
-            bassGuitar.Model = viewModel.Model;
-            bassGuitar.Manufacturer = viewModel.Manufacturer;
-            bassGuitar.CategoryID = viewModel.CategoryID;
-
-            _context.SaveChanges();
-
-            return RedirectToAction("Index");
         }
 
         // GET: BassGuitar/Delete/5
         public ActionResult Delete(int id)
         {
-            var bassGuitar = _context.BassGuitars.SingleOrDefault(c => c.ID == id);
+            return View();
+        }
 
-            if (bassGuitar == null)
-                return HttpNotFound();
+        // POST: BassGuitar/Delete/5
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
 
-            _context.BassGuitars.Remove(bassGuitar);
-            _context.SaveChanges();
-
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

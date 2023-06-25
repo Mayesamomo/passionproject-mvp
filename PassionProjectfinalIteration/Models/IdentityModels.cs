@@ -32,5 +32,7 @@ namespace PassionProjectfinalIteration.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<PassionProjectfinalIteration.Models.BassistDTO> BassistDTOes { get; set; }
     }
 }

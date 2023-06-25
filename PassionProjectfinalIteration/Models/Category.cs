@@ -13,7 +13,7 @@ namespace PassionProjectfinalIteration.Models
 
         [Required(ErrorMessage = "Category name is required.")]
         public string CategoryName { get; set; }
-
+      
         public virtual ICollection<BassGuitar> BassGuitars { get; set; }
     }
 }

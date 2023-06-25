@@ -183,25 +183,42 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BassGuitarController.cs" />
-    <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\BassGuitarDataController.cs" />
+    <Compile Include="Controllers\BassistDataController.cs" />
+    <Compile Include="Controllers\CategoryDataController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202306100210322_InitialCreate.cs" />
-    <Compile Include="Migrations\202306100210322_InitialCreate.designer.cs">
-      <DependentUpon>202306100210322_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202306251454028_CreateCategoriesTable.cs" />
+    <Compile Include="Migrations\202306251454028_CreateCategoriesTable.designer.cs">
+      <DependentUpon>202306251454028_CreateCategoriesTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202306191200344_bassguitar.cs" />
-    <Compile Include="Migrations\202306191200344_bassguitar.designer.cs">
-      <DependentUpon>202306191200344_bassguitar.cs</DependentUpon>
+    <Compile Include="Migrations\202306251455293_CreateBassistTable.cs" />
+    <Compile Include="Migrations\202306251455293_CreateBassistTable.designer.cs">
+      <DependentUpon>202306251455293_CreateBassistTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202306251456008_CreateBassistGuitarTable.cs" />
+    <Compile Include="Migrations\202306251456008_CreateBassistGuitarTable.designer.cs">
+      <DependentUpon>202306251456008_CreateBassistGuitarTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202306251521011_updateBassGuitarClass.cs" />
+    <Compile Include="Migrations\202306251521011_updateBassGuitarClass.designer.cs">
+      <DependentUpon>202306251521011_updateBassGuitarClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202306252108523_updatemodel.cs" />
+    <Compile Include="Migrations\202306252108523_updatemodel.designer.cs">
+      <DependentUpon>202306252108523_updatemodel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BassGuitar.cs" />
+    <Compile Include="DTOs\BassGuitarDTO.cs" />
     <Compile Include="Models\Bassist.cs" />
+    <Compile Include="DTOs\BassistDTO.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="DTOs\CategoryDTO.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -230,6 +247,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <None Include="jsondata\Bassguitar.json" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -281,15 +299,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\BassGuitar\Index.cshtml" />
-    <Content Include="Views\BassGuitar\Create.cshtml" />
-    <Content Include="Views\BassGuitar\Edit.cshtml" />
-    <Content Include="Views\View.cshtml" />
-    <Content Include="Views\Categories\Create.cshtml" />
-    <Content Include="Views\Categories\Delete.cshtml" />
-    <Content Include="Views\Categories\Details.cshtml" />
-    <Content Include="Views\Categories\Edit.cshtml" />
-    <Content Include="Views\Categories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -322,11 +331,20 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202306100210322_InitialCreate.resx">
-      <DependentUpon>202306100210322_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306251454028_CreateCategoriesTable.resx">
+      <DependentUpon>202306251454028_CreateCategoriesTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202306191200344_bassguitar.resx">
-      <DependentUpon>202306191200344_bassguitar.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202306251455293_CreateBassistTable.resx">
+      <DependentUpon>202306251455293_CreateBassistTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306251456008_CreateBassistGuitarTable.resx">
+      <DependentUpon>202306251456008_CreateBassistGuitarTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306251521011_updateBassGuitarClass.resx">
+      <DependentUpon>202306251521011_updateBassGuitarClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306252108523_updatemodel.resx">
+      <DependentUpon>202306252108523_updatemodel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

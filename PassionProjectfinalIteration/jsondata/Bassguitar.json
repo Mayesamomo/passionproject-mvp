@@ -1,0 +1,13 @@
+﻿{
+  "ID": 4,
+  "Color": "Sunburst",
+  "NumberOfStrings":4,
+  "Model": "Scottbazz",
+  "Manufacturer": "Fender",
+  "CategoryID": 2,
+  "CategoryName": "Bass",
+  "OwnerID": 2,
+  "OwnerName": "Jeremiah Amah",
+  "BassGuitarHasPic": true,
+  "PicExtension": "jpg"
+}
